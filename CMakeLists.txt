@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
+
 project(SDEV265-Project)
+
+find_package(Crow CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
-add_executable(SDEV265-Project main.cpp)
-target_link_libraries(SDEV265-Project PRIVATE crow::crow)
+
+add_executable(SDEV265-Project Source/main.cpp)
+
+target_link_libraries(SDEV265-Project PRIVATE Crow::Crow ws2_32 mswsock)

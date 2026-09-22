@@ -1,0 +1,24 @@
+Detecting compiler hash for triplet x64-mingw-dynamic...
+Compiler found: C:/msys64/ucrt64/bin/x86_64-w64-mingw32-g++.exe
+The following packages are already installed:
+  * asio:x64-mingw-dynamic@1.32.0
+    crow:x64-mingw-dynamic@1.3.2
+    fmt:x64-mingw-dynamic@12.1.0
+  * vcpkg-cmake:x64-mingw-dynamic@2024-04-23
+  * vcpkg-cmake-config:x64-mingw-dynamic@2024-05-23
+crow provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(Crow CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Crow::Crow)
+
+The package fmt provides CMake targets:
+
+    find_package(fmt CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fmt::fmt)
+
+    # Or use the header-only version
+    find_package(fmt CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fmt::fmt-header-only)
+
+All requested installations completed successfully in: 320 us

@@ -1,0 +1,3 @@
+D:/Class/sdev/SDEV265-Project/build/CMakeFiles/SDEV265-Project.dir
+D:/Class/sdev/SDEV265-Project/build/CMakeFiles/edit_cache.dir
+D:/Class/sdev/SDEV265-Project/build/CMakeFiles/rebuild_cache.dir
