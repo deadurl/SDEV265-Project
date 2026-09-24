@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+    <link rel="stylesheet" href="finance.css">
+</head>
+<body>
+    <div class="date-container">
+        <header>
+            <h2>Finance Journal</h2>
+            <p id="current-date-display">Todays' Date:</p>
+        </header>
+    </div>
+
+    <div class="balance-container">
+        <h3>Current Balance</h3>
+        <h1 id="total-balance">$0.00</h1>
+    </div>
+
+    <form id="ledger-form">
+      <input type="text" id="form-desc" placeholder="Description" required>
+      <input type="number" id="form-amount" placeholder="Amount" step="0.01" required>
+      <select id="form-type">
+        <option value="expense">Expense</option>
+        <option value="income">Income</option>
+      </select>
+      <button type="submit">Write Entry</button>
+    </form>
+
+    <!--bank history list is just an example for how it needs to look and can be deleted once history is actually set up--> 
+    <div class="history-container"> <!--do not delete-->
+        <h3>Bank History</h3> <!--do not delete-->
+        <ul id="history-list"> <!--do not delete-->
+            <li class="history-item expense"> <!--can be deleted-->
+                <span class="entry-date">09/24/2026</span> <!--can be deleted-->
+                <span class="entry-desc">Groceries</span> <!--can be deleted-->
+                <span class="entry-amount">-$45.50</span> <!--can be deleted-->
+                <button class="delete-btn">&times;</button> <!--can be deleted-->
+            </li>
+            <li class="history-item income"> <!--can be deleted-->
+                <span class="entry-date">09/24/2026</span> <!--can be deleted-->
+                <span class="entry-desc">Paycheck</span> <!--can be deleted-->
+                <span class="entry-amount">+$500.00</span> <!--can be deleted-->
+                <button class="delete-btn">&times;</button> <!--can be deleted-->
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
