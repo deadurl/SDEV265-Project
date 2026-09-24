@@ -5,10 +5,15 @@
 
 class Requests {
 public:
-    const static enum RequestType { GET, POST, DELETE };
+    const static enum class RequestType : char { GET = 'G', POST = 'P', DEL = 'D' };
 private:
     DatabaseManager _dbMgr;
     RequestType _ty;
+    std::function<bool()> * _fun;
+    unsigned int _next;
+
 public:
-    Requests(); //mabe dont need this?
+    std::function<bool()> NextFunc();
+
+    Requests() : _next(0) {}
 };
