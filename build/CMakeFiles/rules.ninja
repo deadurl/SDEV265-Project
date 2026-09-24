@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\msys64\ucrt64\bin\cmake.exe --regenerate-during-build -SD:\Class\sdev\SDEV265-Project -BD:\Class\sdev\SDEV265-Project\build
+  command = C:\msys64\ucrt64\bin\cmake.exe --regenerate-during-build -SC:\IVYTECH\SDEV265-Project-VSC\SDEV265-Project -BC:\IVYTECH\SDEV265-Project-VSC\SDEV265-Project\build
   description = Re-running CMake...
   generator = 1
 

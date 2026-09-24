@@ -11,10 +11,10 @@ void RouteManager::Route() {
     crow::mustache::set_global_base("./View");
 
     for (int i = 0; i < ROUTES; i++) {
-        CROW_ROUTE(_app, _routes[i])([i, this](){
+        CROW_ROUTE(_app, "/{}"})([i, this](std::string ){
             if (!_Route(_routes[i]))
                 return "error";
-            auto ret = crow::mustache::load_text(pths[i].HTMLpth);
+            auto ret = crow::mustache::load(pths[i].HTMLpth);
             return ret.render();
         });
     }
