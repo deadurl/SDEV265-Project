@@ -8784,3 +8784,104 @@ events:
         - "C:/Program Files (x86)/SDEV265-Project"
       CMAKE_FIND_ROOT_PATH: "D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic;D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic/debug"
 ...
+
+---
+events:
+  -
+    kind: "find_package-v1"
+    backtrace:
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:939 (_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    name: "unofficial-sqlite3"
+    configs:
+      -
+        filename: "unofficial-sqlite3.cps"
+        kind: "cps"
+      -
+        filename: "unofficial-sqlite3Config.cmake"
+        kind: "cmake"
+      -
+        filename: "unofficial-sqlite3-config.cmake"
+        kind: "cmake"
+    version_request:
+      exact: false
+    settings:
+      required: "required_explicit"
+      quiet: false
+      global: false
+      policy_scope: true
+      bypass_provider: false
+      names:
+        - "unofficial-sqlite3"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
+        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
+    candidates:
+      -
+        path: "D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic/unofficial-sqlite3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic/unofficial-sqlite3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic/lib/cps/unofficial-sqlite3.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic/share/cps/unofficial-sqlite3.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic/share/unofficial-sqlite3/unofficial-sqlite3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+    found:
+      path: "D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic/share/unofficial-sqlite3/unofficial-sqlite3-config.cmake"
+      mode: "config"
+      version: ""
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic"
+        - "D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic/debug"
+      ENV{PATH}:
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler"
+        - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
+        - "C:\\Program Files\\Razer Chroma SDK\\bin"
+        - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
+        - "C:\\Program Files\\Razer\\ChromaBroadcast\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Users\\Gabriel\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\hw\\JavaClass\\Git\\cmd"
+        - "C:\\msys64\\ucrt64\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/SDEV265-Project"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/msys64/ucrt64"
+        - "C:/Program Files (x86)/SDEV265-Project"
+      CMAKE_FIND_ROOT_PATH: "D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic;D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic/debug"
+...

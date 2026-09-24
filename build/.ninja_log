@@ -1,3 +1,11 @@
 # ninja log v7
 19	9000	8118198522086724	CMakeFiles/SDEV265-Project.dir/Source/main.cpp.obj	a1a10a4271a05edf
-22	570	8118200496722580	SDEV265-Project.exe	3b8a71fef2758595
+125	626	8119890569440962	SDEV265-Project.exe	82a1a891cdfcf3e
+19	3625	8119905341145885	build.ninja	b2a5ab6dacc86ad
+19	3625	8119905341103520	D:/Class/sdev/SDEV265-Project/build/cmake_install.cmake	b2a5ab6dacc86ad
+32	124	8119890568509251	CMakeFiles/SDEV265-Project.dir/Source/DatabaseManager.cpp.obj	682f5b12078504c4
+5	2828	8119905341145885	build.ninja	b2a5ab6dacc86ad
+5	2828	8119905341145885	D:/Class/sdev/SDEV265-Project/build/cmake_install.cmake	b2a5ab6dacc86ad
+28	4098	8119905341743129	CMakeFiles/SDEV265-Project.dir/Source/DatabaseManager.cpp.obj	412807cc09cd4c64
+21	7526	8119905341672952	CMakeFiles/SDEV265-Project.dir/Source/main.cpp.obj	55fefa2b48b8e2e2
+7531	8216	8119905416765065	SDEV265-Project.exe	82a1a891cdfcf3e

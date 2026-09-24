@@ -342,6 +342,9 @@ asio_DIR:PATH=D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dyna
 //The directory containing a CMake configuration file for fmt.
 fmt_DIR:PATH=D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic/share/fmt
 
+//The directory containing a CMake configuration file for unofficial-sqlite3.
+unofficial-sqlite3_DIR:PATH=D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic/share/unofficial-sqlite3
+
 
 ########################
 # INTERNAL cache entries

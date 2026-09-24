@@ -4,6 +4,7 @@ The following packages are already installed:
   * asio:x64-mingw-dynamic@1.32.0
     crow:x64-mingw-dynamic@1.3.2
     fmt:x64-mingw-dynamic@12.1.0
+    sqlite3[core,json1]:x64-mingw-dynamic@3.53.1#2
   * vcpkg-cmake:x64-mingw-dynamic@2024-04-23
   * vcpkg-cmake-config:x64-mingw-dynamic@2024-05-23
 crow provides CMake targets:
@@ -21,4 +22,10 @@ The package fmt provides CMake targets:
     find_package(fmt CONFIG REQUIRED)
     target_link_libraries(main PRIVATE fmt::fmt-header-only)
 
-All requested installations completed successfully in: 320 us
+sqlite3 provides pkgconfig bindings.
+sqlite3 provides CMake targets:
+
+    find_package(unofficial-sqlite3 CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE unofficial::sqlite3::sqlite3)
+
+All requested installations completed successfully in: 331 us

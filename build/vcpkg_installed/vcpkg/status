@@ -39,3 +39,21 @@ Abi: 5bd7fa199fa3d7ae9eda591b4316d58fb07ff9434c97878bec2df973eba969f1
 Description: {fmt} is an open-source formatting library providing a fast and safe alternative to C stdio and C++ iostreams.
 Status: install ok installed
 
+Package: sqlite3
+Version: 3.53.1
+Port-Version: 2
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-mingw-dynamic
+Multi-Arch: same
+Abi: 4fdd5271c8def6a29348fd0a76019c9d7e7e907be70fddb5c2c661370bef4676
+Description: SQLite is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine.
+Default-Features: json1
+Status: install ok installed
+
+Package: sqlite3
+Feature: json1
+Architecture: x64-mingw-dynamic
+Multi-Arch: same
+Description: Enable JSON functionality for sqlite3
+Status: install ok installed
+

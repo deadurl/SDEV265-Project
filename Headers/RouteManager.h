@@ -11,7 +11,7 @@ class RouteManager {
     } * _pths;
 
     const std::string _routes[ROUTES] = {" ", " "};
-    crow::simpleApp _app;
+    crow::SimpleApp _app;
     //const unsigned int _port;
     
     std::function<bool()> _Route(std::string);

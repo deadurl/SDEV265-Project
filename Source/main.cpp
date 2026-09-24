@@ -1,9 +1,12 @@
 #include <iostream>
 #include <crow.h>
+#include "DatabaseManager.h"
 
 int main()
 {
     std::cout << "SDEV265 Project is working!" << std::endl;
+
+    DatabaseManager database;
 
     crow::SimpleApp app;
 
