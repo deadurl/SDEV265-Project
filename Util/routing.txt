@@ -1,0 +1,2 @@
+index index.html N
+funny funny.html N

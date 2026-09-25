@@ -7,6 +7,8 @@ class Model_JSON_Cont {
     T _model;
     crow::json::rvalue _json;
 public:
-    void GetJson();
-    T getModel();
+    crow::json::rvalue GetJson();
+    T GetModel();
 };
+
+

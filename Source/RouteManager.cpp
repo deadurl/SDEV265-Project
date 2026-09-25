@@ -5,7 +5,7 @@
 #include "RequestsDelete.h"
 
 int RouteManager::_Route(std::string route) {
-    for (int i = 0; i < _len; i++) {
+    for (int i = 0; i < _fun.size() - 1; i++) {
         if (_routes[i] == route) {
             return i;
         }
@@ -17,23 +17,31 @@ void RouteManager::Route() {
     // hopefully this allows for the css to be included
     crow::mustache::set_global_base("View");
 
+    // for landing page
+    CROW_ROUTE(_app, "/") ([](){
+        crow::mustache::template_t pg = crow::mustache::load("index.html");
+        return pg.render();
+    });
+
+    // messy for every other page
     // todo: change this into "/<path>"
     CROW_ROUTE(_app, "/<string>") ([this](std::string page) {
-        //landing page load, ret must be initialized (static so called once)
-        crow::mustache::template_t ret = crow::mustache::load("index.html");
-        int fun = 0;
-        for (int i = 0; i < _len; i++) {
-            fun = _Route(_routes[i]);
-            // default page should be index.html
-            if (fun > -1) {
-                auto cont = _fun[i];
-                if (cont.call != nullptr)
-                    cont.call(); 
-                ret = crow::mustache::load(cont.HTML_Pth);
-            } else {
-                ret = crow::mustache::load("error.html");
-            }
-            return ret.render();
+        //initial page load, ret must be initialized(mabe not to error *slow)
+        crow::mustache::template_t pg = crow::mustache::load("error.html");
+        int funRet = 0;
+
+        for (int i = 0; i < _fun.size() - 1; i++) {
+            funRet = _Route(_routes[i]);
+            
+            if (funRet > -1) {
+                auto FFcont = _fun.at(i);
+
+                if (FFcont.call != nullptr)
+                    FFcont.call(); 
+                
+                pg = crow::mustache::load(FFcont.HTML_Pth);
+            } 
+            return pg.render();
         }
     });
 }
@@ -43,23 +51,35 @@ void RouteManager::Run(int port) {
 }
 
 RouteManager::RouteManager() {
-    std::ifstream file("routing.txt");
+    std::string routeLn;
+    std::string path;
     char HTTPty;
-    Requests * req; 
+    std::function<bool()> func;
 
-    for (int i = 0; !file; i++) {
-        file >> _routes[i] >> _fun[i].HTML_Pth >> HTTPty;
-        ++_len;
-        if (HTTPty == 'N') {
-            _fun[i].call = nullptr;
-            continue;
-        } else if (HTTPty == (char)Requests::RequestType::GET)
+    std::stringstream ss;
+    Requests * req; 
+    std::ifstream file ("routing.txt");
+
+    if (!file.is_open())
+        return; // mabe throw
+
+    while (std::getline(file, routeLn)) {
+        ss.str() = routeLn;
+        ss >> routeLn >> path >> HTTPty;
+
+        _routes.push_back(path);
+
+        //get the http request type of each line in routing.txt
+        if (HTTPty == 'N') 
+            _fun.push_back({routeLn, nullptr});
+        else if (HTTPty == (char)Requests::RequestType::GET)
             req = new RequestsGet();
         else if (HTTPty == (char)Requests::RequestType::DEL)
             req = new RequestsDelete();
         else if (HTTPty == (char)Requests::RequestType::POST)
             req = new RequestsPost();
 
-        _fun[i].call = req->NextFunc();
+        func = req->NextFunc();
+        _fun.push_back({routeLn, func});
     }
 }

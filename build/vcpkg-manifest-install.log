@@ -8,40 +8,22 @@ The following packages will be built and installed:
   * vcpkg-cmake:x64-windows@2024-04-23 -- git+https://github.com/microsoft/vcpkg@e74aa1e8f93278a8e71372f1fa08c3df420eb840
   * vcpkg-cmake-config:x64-windows@2024-05-23 -- git+https://github.com/microsoft/vcpkg@97a63e4bc1a17422ffe4eff71da53b4b561a7841
 Additional packages (*) will be modified to complete this operation.
-Restored 4 package(s) from C:\Users\super\AppData\Local\vcpkg\archives in 1.1 s. Use --debug to see more details.
+Restored 5 package(s) from C:\Users\super\AppData\Local\vcpkg\archives in 1.1 s. Use --debug to see more details.
 Installing 1/5 vcpkg-cmake-config:x64-windows@2024-05-23...
 vcpkg-cmake-config:x64-windows@2024-05-23 package ABI: 5825639d082bd58a977130e150f4412ae0a14c929c32b5cef11a13a9f7e085fe
-Elapsed time to handle vcpkg-cmake-config:x64-windows: 61.6 ms
+Elapsed time to handle vcpkg-cmake-config:x64-windows: 80.6 ms
 Installing 2/5 vcpkg-cmake:x64-windows@2024-04-23...
 vcpkg-cmake:x64-windows@2024-04-23 package ABI: e7e2d7e87ce13404332f16dab6830c0ff16ba9b713203f8758f147716ea044e3
-Elapsed time to handle vcpkg-cmake:x64-windows: 94.6 ms
+Elapsed time to handle vcpkg-cmake:x64-windows: 109 ms
 Installing 3/5 asio:x64-windows@1.32.0...
 asio:x64-windows@1.32.0 package ABI: 355a015658283601fbedbfaab56ac95a0e98fc16669ed411dd0c00d310a176d3
-Elapsed time to handle asio:x64-windows: 221 ms
+Elapsed time to handle asio:x64-windows: 206 ms
 Installing 4/5 crow:x64-windows@1.3.2...
 crow:x64-windows@1.3.2 package ABI: 59b2b3d0faebf630bcf7f93f841d64bd94bc48da7d987ad6761e9b5a6ab1a56f
-Elapsed time to handle crow:x64-windows: 156 ms
+Elapsed time to handle crow:x64-windows: 155 ms
 Installing 5/5 fmt:x64-windows@12.1.0...
 fmt:x64-windows@12.1.0 package ABI: da00d371cd42e240aad57e90a8a61757e193f57813449a247a382ce577d01762
-Building fmt:x64-windows@12.1.0...
-C:\Users\super\AppData\Local\vcpkg\registries\git-trees\936231a2c765082457d348a8781ea9d3610eb331: info: installing from git registry git+https://github.com/microsoft/vcpkg@936231a2c765082457d348a8781ea9d3610eb331
-Downloading https://github.com/fmtlib/fmt/archive/12.1.0.tar.gz -> fmtlib-fmt-12.1.0.tar.gz
-Successfully downloaded fmtlib-fmt-12.1.0.tar.gz
--- Extracting source C:/msys64/home/super/vcpkg/downloads/fmtlib-fmt-12.1.0.tar.gz
--- Using source at C:/msys64/home/super/vcpkg/buildtrees/fmt/src/12.1.0-54f1f91231.clean
--- Configuring x64-windows
--- Building x64-windows-dbg
--- Building x64-windows-rel
--- Fixing pkgconfig file: C:/msys64/home/super/vcpkg/packages/fmt_x64-windows/lib/pkgconfig/fmt.pc
--- Using cached msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
--- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
--- Using msys root at C:/msys64/home/super/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
--- Fixing pkgconfig file: C:/msys64/home/super/vcpkg/packages/fmt_x64-windows/debug/lib/pkgconfig/fmt.pc
--- Installing: C:/msys64/home/super/vcpkg/packages/fmt_x64-windows/share/fmt/usage
--- Installing: C:/msys64/home/super/vcpkg/packages/fmt_x64-windows/share/fmt/copyright
--- Performing post-build validation
-Starting submission of fmt:x64-windows@12.1.0 to 1 binary cache(s) in the background
-Elapsed time to handle fmt:x64-windows: 5 s
+Elapsed time to handle fmt:x64-windows: 163 ms
 Installed contents are licensed to you by owners. Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
 Packages installed in this vcpkg installation declare the following licenses:
 BSD-3-Clause
@@ -62,6 +44,4 @@ The package fmt provides CMake targets:
     find_package(fmt CONFIG REQUIRED)
     target_link_libraries(main PRIVATE fmt::fmt-header-only)
 
-Waiting for 1 remaining binary cache submissions...
-Completed submission of fmt:x64-windows@12.1.0 to 1 binary cache(s) in 174 ms (1/1)
-All requested installations completed successfully in: 5.5 s
+All requested installations completed successfully in: 719 ms
