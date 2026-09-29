@@ -6,13 +6,24 @@ int main()
 {
     std::cout << "SDEV265 Project is working!" << std::endl;
 
-    DatabaseManager database;
-
     crow::SimpleApp app;
 
-    CROW_ROUTE(app, "/")([]()
+    // Main webpage
+    CROW_ROUTE(app, "/")
+    ([]()
     {
-        return "Hello from Crow!";
+        crow::response res;
+        res.set_static_file_info("View/index.html");
+        return res;
+    });
+
+    // CSS file
+    CROW_ROUTE(app, "/finance.css")
+    ([]()
+    {
+        crow::response res;
+        res.set_static_file_info("View/finance.css");
+        return res;
     });
 
     app.port(18080).multithreaded().run();

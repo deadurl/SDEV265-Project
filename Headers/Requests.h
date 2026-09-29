@@ -1,14 +1,26 @@
+
 #pragma once
 
 #include "Header.h"
+
 #include "DatabaseManager.h"
 
 class Requests {
+
 public:
-    const static enum RequestType { GET, POST, DELETE };
+
+    enum RequestType { GET, POST, DEL };
+
 private:
+
     DatabaseManager _dbMgr;
     RequestType _ty;
+    std::function<bool()>* _fun;
+    int _next;
+
 public:
-    Requests(); //mabe dont need this?
+
+    Requests();
+    std::function<bool()> NextFunc();
+
 };
