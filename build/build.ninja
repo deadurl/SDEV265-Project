@@ -60,6 +60,22 @@ build CMakeFiles/SDEV265-Project.dir/Source/DatabaseManager.cpp.obj: CXX_COMPILE
   OBJECT_FILE_DIR = CMakeFiles\SDEV265-Project.dir\Source
   TARGET_SUPPORT_DIR = CMakeFiles\SDEV265-Project.dir
 
+build CMakeFiles/SDEV265-Project.dir/Source/RouteManager.cpp.obj: CXX_COMPILER__SDEV265-Project_unscanned_ D$:/Class/sdev/SDEV265-Project/Source/RouteManager.cpp || cmake_object_order_depends_target_SDEV265-Project
+  DEFINES = -DASIO_NO_DEPRECATED
+  DEP_FILE = CMakeFiles\SDEV265-Project.dir\Source\RouteManager.cpp.obj.d
+  INCLUDES = -ID:/Class/sdev/SDEV265-Project/Headers -isystem D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic/include
+  OBJECT_DIR = CMakeFiles\SDEV265-Project.dir
+  OBJECT_FILE_DIR = CMakeFiles\SDEV265-Project.dir\Source
+  TARGET_SUPPORT_DIR = CMakeFiles\SDEV265-Project.dir
+
+build CMakeFiles/SDEV265-Project.dir/Source/Requests.cpp.obj: CXX_COMPILER__SDEV265-Project_unscanned_ D$:/Class/sdev/SDEV265-Project/Source/Requests.cpp || cmake_object_order_depends_target_SDEV265-Project
+  DEFINES = -DASIO_NO_DEPRECATED
+  DEP_FILE = CMakeFiles\SDEV265-Project.dir\Source\Requests.cpp.obj.d
+  INCLUDES = -ID:/Class/sdev/SDEV265-Project/Headers -isystem D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic/include
+  OBJECT_DIR = CMakeFiles\SDEV265-Project.dir
+  OBJECT_FILE_DIR = CMakeFiles\SDEV265-Project.dir\Source
+  TARGET_SUPPORT_DIR = CMakeFiles\SDEV265-Project.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target SDEV265-Project
@@ -68,7 +84,7 @@ build CMakeFiles/SDEV265-Project.dir/Source/DatabaseManager.cpp.obj: CXX_COMPILE
 #############################################
 # Link the executable SDEV265-Project.exe
 
-build SDEV265-Project.exe: CXX_EXECUTABLE_LINKER__SDEV265-Project_ CMakeFiles/SDEV265-Project.dir/Source/main.cpp.obj CMakeFiles/SDEV265-Project.dir/Source/DatabaseManager.cpp.obj | vcpkg_installed/x64-mingw-dynamic/debug/lib/libsqlite3.dll.a
+build SDEV265-Project.exe: CXX_EXECUTABLE_LINKER__SDEV265-Project_ CMakeFiles/SDEV265-Project.dir/Source/main.cpp.obj CMakeFiles/SDEV265-Project.dir/Source/DatabaseManager.cpp.obj CMakeFiles/SDEV265-Project.dir/Source/RouteManager.cpp.obj CMakeFiles/SDEV265-Project.dir/Source/Requests.cpp.obj | vcpkg_installed/x64-mingw-dynamic/debug/lib/libsqlite3.dll.a
   LINK_LIBRARIES = vcpkg_installed/x64-mingw-dynamic/debug/lib/libsqlite3.dll.a  -lws2_32  -lmswsock  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\SDEV265-Project.dir
   POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\Class\sdev\SDEV265-Project\build && C:\vcpkg\vcpkg.exe z-applocal --target-binary=D:/Class/sdev/SDEV265-Project/build/SDEV265-Project.exe --installed-bin-dir=D:/Class/sdev/SDEV265-Project/build/vcpkg_installed/x64-mingw-dynamic/bin"

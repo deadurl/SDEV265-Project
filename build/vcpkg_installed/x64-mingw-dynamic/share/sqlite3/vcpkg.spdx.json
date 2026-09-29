@@ -3,13 +3,13 @@
   "spdxVersion": "SPDX-2.3",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "documentNamespace": "https://spdx.org/spdxdocs/sqlite3-x64-mingw-dynamic-3.53.1#2-12affd10-f3c3-4ab5-892e-bb5bfdd7f03d",
-  "name": "sqlite3:x64-mingw-dynamic@3.53.1#2 4fdd5271c8def6a29348fd0a76019c9d7e7e907be70fddb5c2c661370bef4676",
+  "documentNamespace": "https://spdx.org/spdxdocs/sqlite3-x64-mingw-dynamic-3.53.1#2-55d7f1cc-f48e-443d-a5e7-1985f1b8323a",
+  "name": "sqlite3:x64-mingw-dynamic@3.53.1#2 33a2f6f9a4ba7e420747690c333266f3044a0b4e0f67cdd8151be1c82fe90cb8",
   "creationInfo": {
     "creators": [
       "Tool: vcpkg-2026-07-27-98d7cb0cf1f4686a3e43aa5672b6230c1d56bce8"
     ],
-    "created": "2026-09-24T21:32:34Z"
+    "created": "2026-09-29T21:03:00Z"
   },
   "relationships": [
     {
@@ -186,7 +186,7 @@
     {
       "name": "sqlite3:x64-mingw-dynamic",
       "SPDXID": "SPDXRef-binary",
-      "versionInfo": "4fdd5271c8def6a29348fd0a76019c9d7e7e907be70fddb5c2c661370bef4676",
+      "versionInfo": "33a2f6f9a4ba7e420747690c333266f3044a0b4e0f67cdd8151be1c82fe90cb8",
       "downloadLocation": "NONE",
       "licenseConcluded": "blessing",
       "licenseDeclared": "NOASSERTION",
@@ -336,7 +336,7 @@
       "checksums": [
         {
           "algorithm": "SHA256",
-          "checksumValue": "2ceac4394d6ba88260fbf7c7a2650e3fe471c024949162aa59f21772dc6bb9b8"
+          "checksumValue": "04e5c68ef7e10ba142a4b230a64444c9af87a83afc75396a9826a137850d7a7b"
         }
       ],
       "licenseConcluded": "NOASSERTION",
@@ -360,7 +360,7 @@
       "checksums": [
         {
           "algorithm": "SHA256",
-          "checksumValue": "36c778ce199bbc089fdbd3add5f3377a49530dbffdc724e9d746c606fe2eb75b"
+          "checksumValue": "aba34a9cbecb139cae87df5438d60ab3c514f17b35ba1eda77cb27301c61532e"
         }
       ],
       "licenseConcluded": "NOASSERTION",

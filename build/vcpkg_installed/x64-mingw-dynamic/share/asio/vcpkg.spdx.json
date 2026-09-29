@@ -3,13 +3,13 @@
   "spdxVersion": "SPDX-2.3",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "documentNamespace": "https://spdx.org/spdxdocs/asio-x64-mingw-dynamic-1.32.0-77859779-fe3a-4f6f-9661-c40ab55ad409",
-  "name": "asio:x64-mingw-dynamic@1.32.0 9508f621ed0c171f5d86d6ee44dc8721861dadf086d791d7a9eb0b9a9587238d",
+  "documentNamespace": "https://spdx.org/spdxdocs/asio-x64-mingw-dynamic-1.32.0-6f1fd09d-d4b9-40dd-b63d-37b77be8be49",
+  "name": "asio:x64-mingw-dynamic@1.32.0 49dd531953c69e83a824cdc611b201541b3935d55d7b1f14df0bf5359bc2a762",
   "creationInfo": {
     "creators": [
       "Tool: vcpkg-2026-07-27-98d7cb0cf1f4686a3e43aa5672b6230c1d56bce8"
     ],
-    "created": "2026-09-22T22:16:31Z"
+    "created": "2026-09-29T21:01:48Z"
   },
   "relationships": [
     {
@@ -3251,7 +3251,7 @@
     {
       "name": "asio:x64-mingw-dynamic",
       "SPDXID": "SPDXRef-binary",
-      "versionInfo": "9508f621ed0c171f5d86d6ee44dc8721861dadf086d791d7a9eb0b9a9587238d",
+      "versionInfo": "49dd531953c69e83a824cdc611b201541b3935d55d7b1f14df0bf5359bc2a762",
       "downloadLocation": "NONE",
       "licenseConcluded": "BSL-1.0",
       "licenseDeclared": "NOASSERTION",

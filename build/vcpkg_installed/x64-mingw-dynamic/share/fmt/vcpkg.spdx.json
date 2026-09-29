@@ -3,13 +3,13 @@
   "spdxVersion": "SPDX-2.3",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "documentNamespace": "https://spdx.org/spdxdocs/fmt-x64-mingw-dynamic-12.1.0-92bd4c4c-9036-43c0-bbcd-8f0ff0063beb",
-  "name": "fmt:x64-mingw-dynamic@12.1.0 5bd7fa199fa3d7ae9eda591b4316d58fb07ff9434c97878bec2df973eba969f1",
+  "documentNamespace": "https://spdx.org/spdxdocs/fmt-x64-mingw-dynamic-12.1.0-4e67ce90-5119-43b5-a153-abac357f05c9",
+  "name": "fmt:x64-mingw-dynamic@12.1.0 051e1c9e4846b2a0525a88507b9f55ea0f13eb897b77b19808f2c7075e2548b0",
   "creationInfo": {
     "creators": [
       "Tool: vcpkg-2026-07-27-98d7cb0cf1f4686a3e43aa5672b6230c1d56bce8"
     ],
-    "created": "2026-09-22T22:21:05Z"
+    "created": "2026-09-29T21:02:16Z"
   },
   "relationships": [
     {
@@ -211,7 +211,7 @@
     {
       "name": "fmt:x64-mingw-dynamic",
       "SPDXID": "SPDXRef-binary",
-      "versionInfo": "5bd7fa199fa3d7ae9eda591b4316d58fb07ff9434c97878bec2df973eba969f1",
+      "versionInfo": "051e1c9e4846b2a0525a88507b9f55ea0f13eb897b77b19808f2c7075e2548b0",
       "downloadLocation": "NONE",
       "licenseConcluded": "MIT",
       "licenseDeclared": "NOASSERTION",
@@ -276,7 +276,7 @@
       "checksums": [
         {
           "algorithm": "SHA256",
-          "checksumValue": "34de5a21a7e3c35233ce73e25fbd6c11c2b0c3b0088cc5c18c9d99e12fb5d114"
+          "checksumValue": "7bc497250a023e6635611760d27a3e2b684b55d9a4e5eb00b6f341a12df0996c"
         }
       ],
       "licenseConcluded": "NOASSERTION",
@@ -300,7 +300,7 @@
       "checksums": [
         {
           "algorithm": "SHA256",
-          "checksumValue": "7a21e473a9deeef5dcb1da298d63f688359dd7c65c1b7911ad603f97a3501bd5"
+          "checksumValue": "c4dbdb7c575c958220f1a2a2764be326000f5cdda601d7c0b60d73c39c4d82c3"
         }
       ],
       "licenseConcluded": "NOASSERTION",
