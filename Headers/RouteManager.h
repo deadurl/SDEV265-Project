@@ -2,20 +2,20 @@
 
 #include "Header.h"
 
-#define ROUTES 2
-
 class RouteManager {
-    struct FileContainer {
+    struct FileFunContainer {
         std::string HTML_Pth;
-        std::string CSS_Pth;
-    } * _pths;
+        std::function<bool()> call;
+    };
+    std::vector<FileFunContainer> _fun;
+    std::vector<std::string> _routes;
 
-    const std::string _routes[ROUTES] = {" ", " "};
-    crow::simpleApp _app;
-    //const unsigned int _port;
+    crow::SimpleApp _app;
     
-    std::function<bool()> _Route(std::string);
+    int _Route(std::string);
 public:
     void Route();
-    void SetPort(int);
+    void Run(int);
+
+    RouteManager();
 };

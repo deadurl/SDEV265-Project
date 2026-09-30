@@ -3,7 +3,7 @@
 #include "Header.h"
 #include "Requests.h"
 
-class RequestsDelete : public Requests {
+class RequestsPost : public Requests {
 public:
 
 };
