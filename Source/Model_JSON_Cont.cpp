@@ -6,7 +6,7 @@ T Model_JSON_Cont<T>::GetModel() {
 }
 
 template<class T>
-crow::json::rvalue Model_JSON_Cont<T>::GetJson() {
+crow::json::wvalue Model_JSON_Cont<T>::GetJson() {
     return _json;
 }
 
@@ -27,5 +27,6 @@ Model_JSON_Cont<T>::Model_JSON_Cont(std::string sql) {
         return;
     }
 
-    _model = new T(_json);
+    //i dont think ill need this for the moment
+    //_model = new T(_json);
 }

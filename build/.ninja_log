@@ -1,0 +1,15 @@
+# ninja log v7
+18	2424	8125951766602995	CMakeFiles/SDEV265-Project.dir/Source/Requests.cpp.obj	efc54354e4eaed68
+10	2438	8125951766512989	CMakeFiles/SDEV265-Project.dir/Source/DatabaseManager.cpp.obj	fd4c1038a51332aa
+14	5050	8125951766563000	CMakeFiles/SDEV265-Project.dir/Source/RouteManager.cpp.obj	5d59df7fc4160244
+32	2332	8125955529687610	CMakeFiles/SDEV265-Project.dir/Source/Requests.cpp.obj	efc54354e4eaed68
+24	2365	8125955529607245	CMakeFiles/SDEV265-Project.dir/Source/DatabaseManager.cpp.obj	fd4c1038a51332aa
+18	2485	8125955529547227	CMakeFiles/SDEV265-Project.dir/Source/main.cpp.obj	7d2f0128ff1b43a4
+28	5007	8125955529647622	CMakeFiles/SDEV265-Project.dir/Source/RouteManager.cpp.obj	5d59df7fc4160244
+5011	5538	8125955579479265	SDEV265-Project.exe	5d2caaf336edea23
+13	4820	8125960969246807	CMakeFiles/SDEV265-Project.dir/Source/RouteManager.cpp.obj	5d59df7fc4160244
+4821	5269	8125961017325619	SDEV265-Project.exe	5d2caaf336edea23
+12	2321	8125962109573939	CMakeFiles/SDEV265-Project.dir/Source/main.cpp.obj	7d2f0128ff1b43a4
+2321	2760	8125962132658989	SDEV265-Project.exe	5d2caaf336edea23
+12	2329	8125962930877573	CMakeFiles/SDEV265-Project.dir/Source/main.cpp.obj	7d2f0128ff1b43a4
+2330	2771	8125962954056419	SDEV265-Project.exe	5d2caaf336edea23

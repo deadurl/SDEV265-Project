@@ -1,5 +1,4 @@
 #include "DatabaseManager.h"
-#include "header.h"
 
 namespace {
 // dono if callback works this way or not 
@@ -12,6 +11,7 @@ static int callback(void* columns, int argc, char** argv, char** colNam) {
         ss << colNam[i] << ' ' << argv[i] << '\n';   
     }
     col->push_back(ss.str());
+    return 0;
 }
 
 }
@@ -78,6 +78,15 @@ DatabaseManager::DatabaseManager()
     {
         std::cout << "Database tables created successfully!" << std::endl;
     }
+
+    //create templates for _SubVarsInTemplate()
+    _sqlStatementTemplates.push_back("SELECT * FROM ?"); //0 - select
+    _sqlStatementTemplates.push_back("INSERT INTO USER VALUES(?)"); //1 - insert
+    _sqlStatementTemplates.push_back("INSERT INTO BUDGET VALUES(?)"); //2
+    _sqlStatementTemplates.push_back("INSERT INTO EXPENSE VALUES(?)"); //3
+    _sqlStatementTemplates.push_back("INSERT INTO ALERT VALUES(?)"); //4
+
+
 }
 
 DatabaseManager::~DatabaseManager()
@@ -103,7 +112,7 @@ std::string DatabaseManager::_SubVarsInTemplate(int index, std::string value)
 
     if (position != std::string::npos)
     {
-        statement.replace(position, variable.length(), value);
+        statement.replace(position, variable.length(), value); //this wont work
     }
 
     return statement;
@@ -144,7 +153,7 @@ std::vector<Model_JSON_Cont<T>> DatabaseManager::SQL_STMT(int index, std::string
     if (statement.empty())
     {
         std::cout << "SQL statement was not found." << std::endl;
-        return;
+        throw;
     }
 
     char* errorMessage = nullptr;

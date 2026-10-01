@@ -41,8 +41,9 @@ void RouteManager::Route() {
                 
                 pg = crow::mustache::load(FFcont.HTML_Pth);
             } 
-            return pg.render();
+            break;
         }
+        return pg.render();
     });
 }
 
@@ -53,6 +54,7 @@ void RouteManager::Run(int port) {
 RouteManager::RouteManager() {
     std::string routeLn;
     std::string path;
+    std::string css;
     char HTTPty;
     std::function<bool()> func;
 
@@ -64,7 +66,7 @@ RouteManager::RouteManager() {
 
     while (std::getline(file, routeLn)) {
         ss << routeLn;
-        ss >> routeLn >> path >> HTTPty;
+        ss >> routeLn >> css >> path >> HTTPty;
 
         _routes.push_back(path);
 
@@ -79,7 +81,7 @@ RouteManager::RouteManager() {
             req = new RequestsPost();
 
         func = req->NextFunc();
-        _fun.push_back({routeLn, func});
+        _fun.push_back({routeLn, css, func});
     }
 
     file.close();

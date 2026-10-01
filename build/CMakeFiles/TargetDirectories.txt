@@ -1,0 +1,3 @@
+C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build/CMakeFiles/SDEV265-Project.dir
+C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build/CMakeFiles/edit_cache.dir
+C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build/CMakeFiles/rebuild_cache.dir

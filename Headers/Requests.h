@@ -5,7 +5,7 @@
 
 class Requests {
 public:
-    const static enum class RequestType : char { GET = 'G', POST = 'P', DEL = 'D' };
+    enum class RequestType : char { GET = 'G', POST = 'P', DEL = 'D' };
 private:
     DatabaseManager _dbMgr;
     RequestType _ty;
