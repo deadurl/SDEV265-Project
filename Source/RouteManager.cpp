@@ -61,7 +61,7 @@ void RouteManager::Route() {
         auto FFcont = _fun.at(funRet);
             
         if (FFcont.call != nullptr)
-            FFcont.call(); 
+            FFcont.call(req, res); 
 
         res.code = 200;
         res.body = "reload page if needed"; // test this, sometimes the request does not change and you get the default 405 responce :(

@@ -5,7 +5,7 @@
 class RouteManager {
     struct FileFunContainer {
         std::string HTML_Pth;
-        std::function<bool()> call;
+        std::function<bool(const crow::request&, const crow::response&)> call;
     };
     std::vector<FileFunContainer> _fun;
     std::vector<std::string> _routes;
