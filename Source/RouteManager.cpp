@@ -78,7 +78,7 @@ RouteManager::RouteManager() {
     std::string routeLn;
     std::string path;
     char HTTPty;
-    std::function<bool()> func;
+    std::function<bool(const crow::request&, const crow::response&)> func;
 
     std::stringstream ss;
     Requests * req; 
