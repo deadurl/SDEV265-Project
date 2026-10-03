@@ -1,19 +1,16 @@
 #include "DatabaseManager.h"
 
 namespace {
-// dono if callback works this way or not 
-// TODO: test
-static int callback(void* columns, int argc, char** argv, char** colNam) {
-    std::vector<std::string> * col = (std::vector<std::string>*)columns;
-    std::stringstream ss;
+    static int callback(void* columns, int argc, char** argv, char** colNam) {
+        std::vector<std::string> * col = (std::vector<std::string>*)columns;
+        std::stringstream ss;
 
-    for (int i = 0; i < argc; ++i) {
-        ss << colNam[i] << ' ' << argv[i] << '\n';   
+        for (int i = 0; i < argc; ++i) {
+            ss << colNam[i] << ' ' << argv[i] << '\n';   
+        }
+        col->push_back(ss.str());
+        return 0;
     }
-    col->push_back(ss.str());
-    return 0;
-}
-
 }
 
 DatabaseManager::DatabaseManager()
@@ -80,13 +77,22 @@ DatabaseManager::DatabaseManager()
     }
 
     //create templates for _SubVarsInTemplate()
-    _sqlStatementTemplates.push_back("SELECT * FROM ?"); //0 - select
-    _sqlStatementTemplates.push_back("INSERT INTO USER VALUES(?)"); //1 - insert
-    _sqlStatementTemplates.push_back("INSERT INTO BUDGET VALUES(?)"); //2
-    _sqlStatementTemplates.push_back("INSERT INTO EXPENSE VALUES(?)"); //3
-    _sqlStatementTemplates.push_back("INSERT INTO ALERT VALUES(?)"); //4
-
-
+    _sqlStatementTemplates.push_back("SELECT * FROM ?"); //0 - select (user)
+    _sqlStatementTemplates.push_back("SELECT ? FROM USER"); //1 - select (filter)
+    _sqlStatementTemplates.push_back("SELECT ? FROM BUDGET"); //2
+    _sqlStatementTemplates.push_back("SELECT ? FROM EXPENSE"); //3
+    _sqlStatementTemplates.push_back("SELECT ? FROM ALERT"); //4
+    _sqlStatementTemplates.push_back("INSERT INTO USER VALUES(?)"); // - insert (values)
+    _sqlStatementTemplates.push_back("INSERT INTO BUDGET VALUES(?)"); //
+    _sqlStatementTemplates.push_back("INSERT INTO EXPENSE VALUES(?)"); //
+    _sqlStatementTemplates.push_back("INSERT INTO ALERT VALUES(?)"); //
+    _sqlStatementTemplates.push_back("DELETE FROM USER WHERE ?"); // - delete (filter)
+    _sqlStatementTemplates.push_back("DELETE FROM BUDGET WHERE ?"); //
+    _sqlStatementTemplates.push_back("DELETE FROM EXPENSE WHERE ?"); //
+    _sqlStatementTemplates.push_back("DELETE FROM ALERT WHERE ?"); //
+    // create more templates 
+    // TODO: templates for post requests will need to be rethought of: will mabe require 2 ? tokens
+    // example: _sqlStatementTemplates.push_back("UPDATE USER SET ? WHERE USER_ID = ?");
 }
 
 DatabaseManager::~DatabaseManager()
@@ -143,23 +149,21 @@ void DatabaseManager::SQL_STMT(int index, std::string value)
 
 //this would be for returning lists of columns
 template<class T>
-std::vector<Model_JSON_Cont<T>> DatabaseManager::SQL_STMT(int index, std::string value) {
+std::vector<Model_JSON_Cont<T>> DatabaseManager::SQL_STMT(const unsigned int& index, const std::string& value) {
     std::vector<Model_JSON_Cont<T>> ret;
     std::vector<std::string> columns;
 
-    // put this in new func
     std::string statement = _SubVarsInTemplate(index, value);
 
-    if (statement.empty())
+    if (statement.empty() || index > 4)
     {
-        std::cout << "SQL statement was not found." << std::endl;
+        std::cout << "SQL statement was not found or not applicable." << std::endl;
         throw;
     }
 
     char* errorMessage = nullptr;
 
     int result = sqlite3_exec(_db, statement.c_str(), callback, &columns, &errorMessage);
-    // put above in new func
 
     if (result != SQLITE_OK)
     {
@@ -170,10 +174,9 @@ std::vector<Model_JSON_Cont<T>> DatabaseManager::SQL_STMT(int index, std::string
     }
 
     for (auto col : columns) 
-        ret.push_back(new Model_JSON_Cont<T>(col));
+        ret.push_back(Model_JSON_Cont<T>(col));
 
     return ret;
-
 }
 
 bool DatabaseManager::SQL_isERR()

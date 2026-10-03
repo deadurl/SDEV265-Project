@@ -5,7 +5,6 @@
 class RouteManager {
     struct FileFunContainer {
         std::string HTML_Pth;
-        std::string CSS_Pth;
         std::function<bool()> call;
     };
     std::vector<FileFunContainer> _fun;

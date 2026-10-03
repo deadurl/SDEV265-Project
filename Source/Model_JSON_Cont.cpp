@@ -1,8 +1,12 @@
 #include "Model_JSON_Cont.h"
+#include "BaseModel.h"
 
+//will return empty if there is no model
 template <class T>
-T Model_JSON_Cont<T>::GetModel() {
-    return _model;
+std::optional<T> Model_JSON_Cont<T>::GetModel() {
+    if (_model.isInitialized())
+        return _model;
+    return {};
 }
 
 template<class T>
@@ -23,10 +27,8 @@ Model_JSON_Cont<T>::Model_JSON_Cont(std::string sql) {
     }
 
     // dono if this will ever be used (has bad bloat) but i dono if the model will be used either
-    if constexpr (std::is_same_v<T, EMPTY>) {
+    if constexpr (std::is_same_v<T, EMPTY>) 
         return;
-    }
-
-    //i dont think ill need this for the moment
-    //_model = new T(_json);
+    else if constexpr (std::is_base_of_v<BaseModel, T>)
+        _model = new T(_json);
 }

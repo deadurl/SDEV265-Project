@@ -4,8 +4,6 @@
 #include "Model_JSON_Cont.h"
 
 #include <sqlite3.h>
-#include <string>
-#include <vector>
 
 class DatabaseManager
 {
@@ -22,7 +20,7 @@ public:
 
     void SQL_STMT(int, std::string);
     template <class T>
-    std::vector<Model_JSON_Cont<T>> SQL_STMT(int, std::string);
+    std::vector<Model_JSON_Cont<T>> SQL_STMT(const unsigned int&, const std::string&);
 
     bool SQL_isERR();
 };

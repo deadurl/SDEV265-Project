@@ -1,10 +1,12 @@
+//#define CROW_STATIC_DIRECTORY "Static/"
+
 #include <iostream>
 #include <crow.h>
 #include <sqlite3.h>
 #include <fstream>
 #include <vector>
 #include <sstream>
-
+/*
 template <class T>
 class Model_JSON_Cont {
     T _model;
@@ -124,7 +126,7 @@ int main() {
     //to test
     std::vector<Model_JSON_Cont<EMPTY>> ret;
     std::vector<std::string> columns;
-/*
+///*
 std::string additions = "INSERT INTO USER VALUES (NULL, \"username\", \"password\");"
 "INSERT INTO USER VALUES (NULL, \"uname\", \"pword\")";
 
@@ -137,7 +139,7 @@ if (result != SQLITE_OK)
     
     sqlite3_free(errorMessage);
 }
-*/
+//
 
     result = sqlite3_exec(_db, "SELECT * FROM USER", callback, &columns, &errorMessage);
 
@@ -157,12 +159,13 @@ if (result != SQLITE_OK)
     }
 
 }
+*/
 
-/*
 int main()
 {
     std::string route;
     std::string path;
+    std::string css;
     std::stringstream ss;
     char HTTPty;
     std::ifstream file("./Util/routing.txt");
@@ -177,7 +180,6 @@ int main()
     }
     
     file.close();
-    return -1;
     
     std::cout << '-' << path << std::endl;
 
@@ -185,18 +187,49 @@ int main()
 
     crow::mustache::set_global_base("Template");
 
+    
+
     CROW_ROUTE(app, "/<string>")([route, path](std::string str)
     {
-        auto ret = crow::mustache::load("index.html");
+
+        //auto ret = crow::mustache::load("index.html");
         if (str == route)
-            auto ret = crow::mustache::load(path);
+            std::cout << "test" << std::endl;
+        auto ret = crow::mustache::load(path);
 
         return ret.render();
     });
-    
+    /*
+    CROW_CATCHALL_ROUTE(app) ([route, path](const crow::request& req){
+        
+        crow::response res;
+        std::cout << "caught request from " << req.url << std::endl;
+        
+        auto p = req.get_body_params();
+        std::cout << std::string(p.get("username")) << std::endl;
+
+        
+        std::cout << res.code << std::endl;
+
+        
+        res.code = 200;
+        res.add_header("location", "/");
+        //res.write("everything is fine");
+        return res;
+    });
+    */
+
+    CROW_CATCHALL_ROUTE(app)
+    ([](const crow::request& req, crow::response& res) {
+
+        res.code = 205;
+        
+        res.add_header("Location", req.url);
+        
+        res.end();
+    });
 
     app.port(18080).multithreaded().run();
 
     return 0;
 }
-*/
