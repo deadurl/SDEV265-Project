@@ -141,6 +141,53 @@ void DatabaseManager::SQL_STMT(std::string statement)
     }
 }
 
+std::vector<std::vector<std::string>> DatabaseManager::SQL_QUERY(std::string statement)
+{
+    std::vector<std::vector<std::string>> results;
+
+    sqlite3_stmt* query = nullptr;
+
+    int result = sqlite3_prepare_v2(
+        _db,
+        statement.c_str(),
+        -1,
+        &query,
+        nullptr
+    );
+
+    if (result != SQLITE_OK)
+    {
+        std::cout << "SQL Query Error: "
+                  << sqlite3_errmsg(_db) << std::endl;
+
+        return results;
+    }
+
+    int columns = sqlite3_column_count(query);
+
+    while (sqlite3_step(query) == SQLITE_ROW)
+    {
+        std::vector<std::string> row;
+
+        for (int i = 0; i < columns; i++)
+        {
+            const char* value =
+                reinterpret_cast<const char*>(sqlite3_column_text(query, i));
+
+            if (value != nullptr)
+                row.push_back(value);
+            else
+                row.push_back("");
+        }
+
+        results.push_back(row);
+    }
+
+    sqlite3_finalize(query);
+
+    return results;
+}
+
 bool DatabaseManager::SQL_isERR()
 {
     if (_db == nullptr)

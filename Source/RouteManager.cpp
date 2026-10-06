@@ -70,11 +70,34 @@ CROW_ROUTE(_app, "/login").methods(crow::HTTPMethod::POST)
 
 // Finance page
 CROW_ROUTE(_app, "/finance")
-([]() {
+([this]() {
+
+    M_Transaction transaction;
+
+    auto history = transaction.GetHistory(_dbMgr);
+
+    crow::mustache::context ctx;
+
+    crow::json::wvalue::list historyList;
+
+    for (auto row : history)
+    {
+        crow::json::wvalue entry;
+
+        entry["date"] = row[0];
+        entry["description"] = row[1];
+        entry["amount"] = row[2];
+        entry["type"] = row[3];
+
+        historyList.push_back(std::move(entry));
+    }
+
+    ctx["history"] = std::move(historyList);
+
     crow::mustache::template_t ret =
         crow::mustache::load("index.html");
 
-    return ret.render();
+    return ret.render(ctx);
 });
 
 

@@ -19,4 +19,6 @@ public:
 
     void SetData(std::string description, std::string amount, std::string type);
     bool Process(DatabaseManager& dbMgr);
+
+    std::vector<std::vector<std::string>> GetHistory(DatabaseManager& dbMgr); 
 };

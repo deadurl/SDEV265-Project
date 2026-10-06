@@ -29,23 +29,13 @@
       <button type="submit">Write Entry</button>
     </form>
 
-    <!--bank history list is just an example for how it needs to look and can be deleted once history is actually set up--> 
-    <div class="history-container"> <!--do not delete-->
-        <h3>Bank History</h3> <!--do not delete-->
-        <ul id="history-list"> <!--do not delete-->
-            <li class="history-item expense"> <!--can be deleted-->
-                <span class="entry-date">09/24/2026</span> <!--can be deleted-->
-                <span class="entry-desc">Groceries</span> <!--can be deleted-->
-                <span class="entry-amount">-$45.50</span> <!--can be deleted-->
-                <button class="delete-btn">&times;</button> <!--can be deleted-->
-            </li>
-            <li class="history-item income"> <!--can be deleted-->
-                <span class="entry-date">09/24/2026</span> <!--can be deleted-->
-                <span class="entry-desc">Paycheck</span> <!--can be deleted-->
-                <span class="entry-amount">+$500.00</span> <!--can be deleted-->
-                <button class="delete-btn">&times;</button> <!--can be deleted-->
-            </li>
-        </ul>
-    </div>
-</body>
-</html>
+   <ul id="history-list">
+    {{#history}}
+    <li class="history-item {{type}}">
+        <span class="entry-date">{{date}}</span>
+        <span class="entry-desc">{{description}}</span>
+        <span class="entry-amount">{{amount}}</span>
+        <button class="delete-btn">&times;</button>
+    </li>
+    {{/history}}
+</ul>
