@@ -4,6 +4,10 @@
 DatabaseManager::DatabaseManager()
 {
     _db = nullptr;
+    
+    _sqlStatementTemplates.push_back( "INSERT INTO BUDGET (USER_ID, BUD_VAL, BUD_DATE, BUD_DESC) VALUES (1, ?, datetime('now'), ?)" );
+
+    _sqlStatementTemplates.push_back( "INSERT INTO EXPENSE (USER_ID, EXP_VAL, EXP_DATE, EXP_DESC) VALUES (1, ?, datetime('now'), ?)" );
 
     int result = sqlite3_open("budget.db", &_db);
 
@@ -86,11 +90,11 @@ std::string DatabaseManager::_SubVarsInTemplate(int index, std::string value)
 
     size_t position = statement.find(variable);
 
-    if (position != std::string::npos)
+    while (position != std::string::npos)
     {
         statement.replace(position, variable.length(), value);
+        position = statement.find(variable);
     }
-
     return statement;
 }
 
@@ -107,6 +111,26 @@ void DatabaseManager::SQL_STMT(int index, std::string value)
     char* errorMessage = nullptr;
 
     int result = sqlite3_exec(_db, statement.c_str(), nullptr, nullptr, &errorMessage);
+
+    if (result != SQLITE_OK)
+    {
+        std::cout << "SQL Error: "
+                  << errorMessage << std::endl;
+
+        sqlite3_free(errorMessage);
+    }
+}
+void DatabaseManager::SQL_STMT(std::string statement)
+{
+    char* errorMessage = nullptr;
+
+    int result = sqlite3_exec(
+        _db,
+        statement.c_str(),
+        nullptr,
+        nullptr,
+        &errorMessage
+    );
 
     if (result != SQLITE_OK)
     {

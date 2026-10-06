@@ -19,5 +19,6 @@ public:
     ~DatabaseManager();
 
     void SQL_STMT(int, std::string);
+    void SQL_STMT(std::string);
     bool SQL_isERR();
 };
