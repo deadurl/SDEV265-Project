@@ -10,12 +10,10 @@ Requests::Requests()
         _fun[i] = nullptr;
 }
 
-std::function<bool()> Requests::NextFunc() {
-
+std::function<bool()> Requests::NextFunc()
+{
     if (_fun[_next] == nullptr)
-
         return nullptr;
 
     return _fun[_next++];
-
 }

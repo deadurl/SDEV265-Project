@@ -19,10 +19,10 @@
         <h1 id="total-balance">$0.00</h1>
     </div>
 
-    <form id="ledger-form">
-      <input type="text" id="form-desc" placeholder="Description" required>
-      <input type="number" id="form-amount" placeholder="Amount" step="0.01" required>
-      <select id="form-type">
+    <form id="ledger-form" method="POST" action="/finance">
+      <input type="text" id="form-desc" name="description" placeholder="Description" required>
+      <input type="number" id="form-amount" name="amount" placeholder="Amount" step="0.01" required>
+      <select id="form-type" name="type">
         <option value="expense">Expense</option>
         <option value="income">Income</option>
       </select>

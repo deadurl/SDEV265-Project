@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Header.h"
+#include "DatabaseManager.h"
 
 class RouteManager {
     struct FileFunContainer {
@@ -10,6 +11,7 @@ class RouteManager {
     std::string * _routes;
     unsigned int _len;
 
+    DatabaseManager _dbMgr;
     crow::SimpleApp _app;
     
     int _Route(std::string);

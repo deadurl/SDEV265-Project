@@ -5,3 +5,6 @@
 #include <crow.h>
 //#include 
 // include the other files here
+class EMPTY
+{
+};

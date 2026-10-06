@@ -1,9 +1,6 @@
-
 #pragma once
 
 #include "Header.h"
-
-#include "DatabaseManager.h"
 
 class Requests {
 
@@ -13,7 +10,6 @@ public:
 
 private:
 
-    DatabaseManager _dbMgr;
     RequestType _ty;
     std::function<bool()>* _fun;
     int _next;
