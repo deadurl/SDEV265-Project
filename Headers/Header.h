@@ -1,23 +1,14 @@
 #pragma once
 
-#include <iostream>
-#include <functional>
-#include <fstream>
-#include <vector>
-#include <sstream>
-#include <optional>
-#include <string>
+#include "DatabaseManager.h"
+#include "Model_JSON_Cont.h"
+#include "Requests.h"
+#include "RequestsDelete.h"
+#include "RequestsGet.h"
+#include "RequestsPost.h"
+#include "RouteManager.h"
 
-#include <crow.h>
-//#include 
-// include the other files here
-
-// thrown types
-struct FILE_ERR {
-    std::string MSG;
-    std::ifstream *FS;
-    FILE_ERR(std::string msg, std::ifstream* fs) : MSG(msg), FS(fs) {}
-};
+#include "M_BaseModel.h"
 
 //dumb types (this is probably mabe used dont delete)
 struct EMPTY {

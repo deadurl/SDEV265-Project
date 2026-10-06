@@ -1,9 +1,10 @@
 #pragma once
 
-#include "Header.h"
-#include "Model_JSON_Cont.h"
-
 #include <sqlite3.h>
+#include <vector>
+#include <string>
+
+#include "Model_JSON_Cont.h"
 
 class DatabaseManager
 {

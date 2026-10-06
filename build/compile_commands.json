@@ -1,0 +1,32 @@
+[
+{
+  "directory": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DASIO_NO_DEPRECATED -IC:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/Headers -isystem C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build/vcpkg_installed/x64-windows/include -o CMakeFiles\\SDEV265-Project.dir\\Source\\main.cpp.obj -c C:\\IVYTECH\\SDEV265-Project-VSC\\SDEV265-Project\\Source\\main.cpp",
+  "file": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/Source/main.cpp",
+  "output": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build/CMakeFiles/SDEV265-Project.dir/Source/main.cpp.obj"
+},
+{
+  "directory": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DASIO_NO_DEPRECATED -IC:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/Headers -isystem C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build/vcpkg_installed/x64-windows/include -o CMakeFiles\\SDEV265-Project.dir\\Source\\DatabaseManager.cpp.obj -c C:\\IVYTECH\\SDEV265-Project-VSC\\SDEV265-Project\\Source\\DatabaseManager.cpp",
+  "file": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/Source/DatabaseManager.cpp",
+  "output": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build/CMakeFiles/SDEV265-Project.dir/Source/DatabaseManager.cpp.obj"
+},
+{
+  "directory": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DASIO_NO_DEPRECATED -IC:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/Headers -isystem C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build/vcpkg_installed/x64-windows/include -o CMakeFiles\\SDEV265-Project.dir\\Source\\RouteManager.cpp.obj -c C:\\IVYTECH\\SDEV265-Project-VSC\\SDEV265-Project\\Source\\RouteManager.cpp",
+  "file": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/Source/RouteManager.cpp",
+  "output": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build/CMakeFiles/SDEV265-Project.dir/Source/RouteManager.cpp.obj"
+},
+{
+  "directory": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DASIO_NO_DEPRECATED -IC:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/Headers -isystem C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build/vcpkg_installed/x64-windows/include -o CMakeFiles\\SDEV265-Project.dir\\Source\\Requests.cpp.obj -c C:\\IVYTECH\\SDEV265-Project-VSC\\SDEV265-Project\\Source\\Requests.cpp",
+  "file": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/Source/Requests.cpp",
+  "output": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build/CMakeFiles/SDEV265-Project.dir/Source/Requests.cpp.obj"
+},
+{
+  "directory": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DASIO_NO_DEPRECATED -IC:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/Headers -isystem C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build/vcpkg_installed/x64-windows/include -o CMakeFiles\\SDEV265-Project.dir\\Source\\Model_JSON_Cont.cpp.obj -c C:\\IVYTECH\\SDEV265-Project-VSC\\SDEV265-Project\\Source\\Model_JSON_Cont.cpp",
+  "file": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/Source/Model_JSON_Cont.cpp",
+  "output": "C:/IVYTECH/SDEV265-Project-VSC/SDEV265-Project/build/CMakeFiles/SDEV265-Project.dir/Source/Model_JSON_Cont.cpp.obj"
+}
+]

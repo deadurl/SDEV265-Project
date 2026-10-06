@@ -1,11 +1,23 @@
 //#define CROW_STATIC_DIRECTORY "Static/"
-
+/*
 #include <iostream>
 #include <crow.h>
 #include <sqlite3.h>
 #include <fstream>
 #include <vector>
 #include <sstream>
+*/
+
+//this is the intended code
+
+#include "Header.h"
+
+int main() {
+    RouteManager rm;
+    rm.Route();
+    rm.Run(18080);
+}
+
 /*
 template <class T>
 class Model_JSON_Cont {
@@ -159,7 +171,7 @@ if (result != SQLITE_OK)
     }
 
 }
-*/
+
 
 int main()
 {
@@ -199,7 +211,7 @@ int main()
 
         return ret.render();
     });
-    /*
+
     CROW_CATCHALL_ROUTE(app) ([route, path](const crow::request& req){
         
         crow::response res;
@@ -217,7 +229,6 @@ int main()
         //res.write("everything is fine");
         return res;
     });
-    */
 
     CROW_CATCHALL_ROUTE(app)
     ([](const crow::request& req, crow::response& res) {
@@ -233,3 +244,4 @@ int main()
 
     return 0;
 }
+    */

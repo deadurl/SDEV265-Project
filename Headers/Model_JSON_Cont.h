@@ -1,6 +1,8 @@
 #pragma once
 
-#include "Header.h"
+#include <optional>
+#include <string>
+#include <crow.h>
 
 template <class T>
 class Model_JSON_Cont {
@@ -10,7 +12,7 @@ public:
     crow::json::wvalue GetJson();
     std::optional<T> GetModel();
     //method to generate models and jsons from string returned by sqlite3
-    Model_JSON_Cont(std::string); 
+    Model_JSON_Cont(std::string);
 };
 
 
