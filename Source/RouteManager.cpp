@@ -1,10 +1,9 @@
 #include "RouteManager.h"
 
 #include "RequestsGet.h"
-#include "M_Transaction.h"
+#include "RequestsPost.h"
 #include "RequestsDelete.h"
 #include "Model_JSON_Cont.h"
-
 
 int RouteManager::_Route(std::string route) {
     for (int i = 0; i < _len; i++) {
@@ -20,7 +19,7 @@ void RouteManager::Route() {
     std::cout << "Routing..." << std::endl;
 
     RequestsGet getRequest;
-    M_Transaction postRequest;
+    RequestsPost postRequest;
     RequestsDelete deleteRequest;
 
     //set the base directory for mustache
@@ -126,15 +125,14 @@ CROW_ROUTE(_app, "/finance").methods(crow::HTTPMethod::POST)
 
     if (description && amount && type)
     {
-        M_Transaction transaction {
+        RequestsPost postRequest;
+
+        postRequest.ProcessTransaction(
+            _dbMgr,
             std::string(description),
             std::string(amount),
             std::string(type)
-        };
-
-        Model_JSON_Cont<M_Transaction> model(transaction);
-
-        transaction.Process(_dbMgr);
+        );
     }
 
     crow::response res;
@@ -213,7 +211,7 @@ RouteManager::RouteManager()
         else if (HTTPty == (char)Requests::RequestType::DEL)
             req = new RequestsDelete();
         else if (HTTPty == (char)Requests::RequestType::POST)
-            req = new M_Transaction();
+            req = new RequestsPost();
         else
             req = nullptr;
 

@@ -10,8 +10,9 @@ add_executable(SDEV265-Project Source/main.cpp
                                Source/DatabaseManager.cpp 
                                Source/RouteManager.cpp 
                                Source/Requests.cpp
-                               Source/RequestGet.cpp
-                               Source/RequestDelete.cpp
+                               Source/RequestsGet.cpp
+                               Source/RequestsDelete.cpp
+                               Source/RequestsPost.cpp
                                Source/M_Transaction.cpp
                                Source/Model_JSON_Cont.cpp)
 
