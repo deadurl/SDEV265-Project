@@ -72,9 +72,21 @@ CROW_ROUTE(_app, "/login").methods(crow::HTTPMethod::POST)
 CROW_ROUTE(_app, "/finance")
 ([this]() {
 
-    M_Transaction transaction;
+    RequestsGet getRequest;
 
-    auto history = transaction.GetHistory(_dbMgr);
+    auto history = getRequest.GetHistory(_dbMgr);
+    auto balance = getRequest.GetBalance(_dbMgr);
+
+    time_t now = time(nullptr);
+    tm* localTime = localtime(&now);
+
+    std::stringstream date;
+    date << std::setfill('0')
+         << std::setw(2) << localTime->tm_mon + 1
+         << "/"
+         << std::setw(2) << localTime->tm_mday
+         << "/"
+         << localTime->tm_year + 1900;
 
     crow::mustache::context ctx;
 
@@ -93,6 +105,8 @@ CROW_ROUTE(_app, "/finance")
     }
 
     ctx["history"] = std::move(historyList);
+    ctx["balance"] = balance;
+    ctx["date"] = date.str();
 
     crow::mustache::template_t ret =
         crow::mustache::load("index.html");

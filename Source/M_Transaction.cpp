@@ -65,16 +65,3 @@ bool M_Transaction::Process(DatabaseManager& dbMgr)
 
     return true;
 }
-
-std::vector<std::vector<std::string>> M_Transaction::GetHistory(DatabaseManager& dbMgr)
-{
-    std::string sql =
-        "SELECT BUD_DATE, BUD_DESC, BUD_VAL, 'income' AS TYPE "
-        "FROM BUDGET "
-        "UNION ALL "
-        "SELECT EXP_DATE, EXP_DESC, EXP_VAL, 'expense' AS TYPE "
-        "FROM EXPENSE "
-        "ORDER BY 1 DESC";
-
-    return dbMgr.SQL_QUERY(sql);
-}

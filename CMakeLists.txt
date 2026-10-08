@@ -9,7 +9,9 @@ find_package(unofficial-sqlite3 CONFIG REQUIRED)
 add_executable(SDEV265-Project Source/main.cpp 
                                Source/DatabaseManager.cpp 
                                Source/RouteManager.cpp 
-                               Source/Requests.cpp 
+                               Source/Requests.cpp
+                               Source/RequestGet.cpp
+                               Source/RequestDelete.cpp
                                Source/M_Transaction.cpp
                                Source/Model_JSON_Cont.cpp)
 
