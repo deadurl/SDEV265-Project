@@ -95,10 +95,11 @@ CROW_ROUTE(_app, "/finance")
     {
         crow::json::wvalue entry;
 
-        entry["date"] = row[0];
-        entry["description"] = row[1];
-        entry["amount"] = row[2];
-        entry["type"] = row[3];
+        entry["id"] = row[0];
+        entry["date"] = row[1];
+        entry["description"] = row[2];
+        entry["amount"] = row[3];
+        entry["type"] = row[4];
 
         historyList.push_back(std::move(entry));
     }
@@ -142,6 +143,33 @@ CROW_ROUTE(_app, "/finance").methods(crow::HTTPMethod::POST)
     return res;
 });
 
+// Delete transaction
+CROW_ROUTE(_app, "/finance/delete")
+.methods(crow::HTTPMethod::POST)
+([this](const crow::request& req) {
+
+    auto params = req.get_body_params();
+
+    auto id = params.get("id");
+    auto type = params.get("type");
+
+    if (id && type)
+    {
+        RequestsDelete deleteRequest;
+
+        deleteRequest.DeleteTransaction(
+            _dbMgr,
+            std::string(id),
+            std::string(type)
+        );
+    }
+
+    crow::response res;
+    res.code = 302;
+    res.set_header("Location", "/finance");
+
+    return res;
+});
 
 // CSS file
 CROW_ROUTE(_app, "/finance.css")

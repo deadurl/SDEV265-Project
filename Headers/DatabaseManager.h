@@ -22,6 +22,5 @@ public:
     void SQL_STMT(std::string);
 
     std::vector<std::vector<std::string>> SQL_QUERY(std::string);
-    
     bool SQL_isERR();
 };

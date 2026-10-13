@@ -1,6 +1,28 @@
 #include "DatabaseManager.h"
 #include <iostream>
 
+namespace
+{
+    static int callback(void* data, int argc, char** argv, char** colNam)
+    {
+        std::vector<std::string> row;
+        std::vector<std::vector<std::string>>* results =
+            (std::vector<std::vector<std::string>>*)data;
+
+        for (int i = 0; i < argc; ++i)
+        {
+            if (argv[i] != nullptr)
+                row.push_back(argv[i]);
+            else
+                row.push_back("");
+        }
+
+        results->push_back(row);
+
+        return 0;
+    }
+}
+
 DatabaseManager::DatabaseManager()
 {
     _db = nullptr;
@@ -145,45 +167,21 @@ std::vector<std::vector<std::string>> DatabaseManager::SQL_QUERY(std::string sta
 {
     std::vector<std::vector<std::string>> results;
 
-    sqlite3_stmt* query = nullptr;
+    char* errorMessage = nullptr;
 
-    int result = sqlite3_prepare_v2(
+    int result = sqlite3_exec(
         _db,
         statement.c_str(),
-        -1,
-        &query,
-        nullptr
+        callback,
+        &results,
+        &errorMessage
     );
 
     if (result != SQLITE_OK)
     {
-        std::cout << "SQL Query Error: "
-                  << sqlite3_errmsg(_db) << std::endl;
-
-        return results;
+        std::cout << "SQL Query Error: " << errorMessage << std::endl;
+        sqlite3_free(errorMessage);
     }
-
-    int columns = sqlite3_column_count(query);
-
-    while (sqlite3_step(query) == SQLITE_ROW)
-    {
-        std::vector<std::string> row;
-
-        for (int i = 0; i < columns; i++)
-        {
-            const char* value =
-                reinterpret_cast<const char*>(sqlite3_column_text(query, i));
-
-            if (value != nullptr)
-                row.push_back(value);
-            else
-                row.push_back("");
-        }
-
-        results.push_back(row);
-    }
-
-    sqlite3_finalize(query);
 
     return results;
 }
@@ -196,4 +194,48 @@ bool DatabaseManager::SQL_isERR()
     }
 
     return sqlite3_errcode(_db) != SQLITE_OK;
+}
+
+void DatabaseManager::AddTransaction(bool isIncome,double amount,std::string description)
+{
+    std::string sql;
+
+    if (isIncome)
+    {
+        sql = "INSERT INTO BUDGET "
+              "(USER_ID, BUD_VAL, BUD_DATE, BUD_DESC) "
+              "VALUES (1, ?, datetime('now'), ?)";
+    }
+    else
+    {
+        sql = "INSERT INTO EXPENSE "
+              "(USER_ID, EXP_VAL, EXP_DATE, EXP_DESC) "
+              "VALUES (1, ?, datetime('now'), ?)";
+    }
+
+    sqlite3_stmt* statement = nullptr;
+
+    int result = sqlite3_prepare_v2(
+        _db, sql.c_str(), -1, &statement, nullptr);
+
+    if (result != SQLITE_OK)
+    {
+        std::cout << "SQL Prepare Error: "
+                  << sqlite3_errmsg(_db) << std::endl;
+        return;
+    }
+
+    sqlite3_bind_double(statement, 1, amount);
+    sqlite3_bind_text(
+        statement, 2, description.c_str(), -1, SQLITE_TRANSIENT);
+
+    result = sqlite3_step(statement);
+
+    if (result != SQLITE_DONE)
+    {
+        std::cout << "SQL Insert Error: "
+                  << sqlite3_errmsg(_db) << std::endl;
+    }
+
+    sqlite3_finalize(statement);
 }

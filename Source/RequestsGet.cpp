@@ -5,14 +5,14 @@
 std::vector<std::vector<std::string>> RequestsGet::GetHistory(DatabaseManager& dbMgr)
 {
     std::string sql =
-        "SELECT BUD_DATE, BUD_DESC, BUD_VAL, 'income' AS TYPE "
-        "FROM BUDGET "
-        "UNION ALL "
-        "SELECT EXP_DATE, EXP_DESC, EXP_VAL, 'expense' AS TYPE "
-        "FROM EXPENSE "
-        "ORDER BY 1 DESC";
+    "SELECT BUD_ID, BUD_DATE, BUD_DESC, BUD_VAL, 'income' AS TYPE "
+    "FROM BUDGET "
+    "UNION ALL "
+    "SELECT EXP_ID, EXP_DATE, EXP_DESC, EXP_VAL, 'expense' AS TYPE "
+    "FROM EXPENSE "
+    "ORDER BY 2 DESC";
 
-    return dbMgr.SQL_QUERY(sql);
+return dbMgr.SQL_QUERY(sql);
 }
 
 std::string RequestsGet::GetBalance(DatabaseManager& dbMgr)
