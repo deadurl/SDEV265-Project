@@ -18,3 +18,5 @@ add_executable(SDEV265-Project Source/main.cpp
 
 target_include_directories(SDEV265-Project PRIVATE Headers)
 target_link_libraries(SDEV265-Project PRIVATE Crow::Crow unofficial::sqlite3::sqlite3 ws2_32 mswsock)
+set_property(TARGET SDEV265-Project PROPERTY
+    VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")

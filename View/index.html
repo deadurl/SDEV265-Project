@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Finance Tracker</title>
-    <link rel="stylesheet" href="finance.css">
+    <link rel="stylesheet" href="/finance.css">
 </head>
 <body>
     <div class="date-container">
@@ -29,13 +29,18 @@
       <button type="submit">Write Entry</button>
     </form>
 
-  <ul id="history-list">
+<ul id="history-list">
     {{#history}}
     <li class="history-item {{type}}">
         <span class="entry-date">{{date}}</span>
         <span class="entry-desc">{{description}}</span>
         <span class="entry-amount">{{amount}}</span>
-        <button class="delete-btn">&times;</button>
+
+        <form method="POST" action="/finance/delete">
+            <input type="hidden" name="id" value="{{id}}">
+            <input type="hidden" name="type" value="{{type}}">
+            <button type="submit" class="delete-btn">&times;</button>
+        </form>
     </li>
     {{/history}}
 </ul>

@@ -5,6 +5,9 @@ bool RequestsDelete::DeleteTransaction(
     std::string id,
     std::string type)
 {
+    std::cout << "Delete requested." << std::endl;
+    std::cout << "ID: " << id << std::endl;
+    std::cout << "Type: " << type << std::endl;
     int transactionID;
 
     try
