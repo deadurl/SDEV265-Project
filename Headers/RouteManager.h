@@ -3,21 +3,11 @@
 #include "Header.h"
 #include "DatabaseManager.h"
 
+//should only be 1 instance of this running
 class RouteManager {
-    struct FileFunContainer {
-        std::string HTML_Pth;
-        std::function<bool()> call;
-    } * _fun;
-    std::string * _routes;
-    unsigned int _len;
-
     DatabaseManager _dbMgr;
     crow::SimpleApp _app;
-    
-    int _Route(std::string);
 public:
     void Route();
     void Run(int);
-
-    RouteManager();
 };

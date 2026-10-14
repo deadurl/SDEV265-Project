@@ -27,10 +27,6 @@ DatabaseManager::DatabaseManager()
 {
     _db = nullptr;
     
-    _sqlStatementTemplates.push_back( "INSERT INTO BUDGET (USER_ID, BUD_VAL, BUD_DATE, BUD_DESC) VALUES (1, ?, datetime('now'), ?)" );
-
-    _sqlStatementTemplates.push_back( "INSERT INTO EXPENSE (USER_ID, EXP_VAL, EXP_DATE, EXP_DESC) VALUES (1, ?, datetime('now'), ?)" );
-
     int result = sqlite3_open("budget.db", &_db);
 
     if (result != SQLITE_OK)
@@ -99,49 +95,6 @@ DatabaseManager::~DatabaseManager()
     }
 }
 
-std::string DatabaseManager::_SubVarsInTemplate(int index, std::string value)
-{
-    if (index < 0 || index >= _sqlStatementTemplates.size())
-    {
-        return "";
-    }
-
-    std::string statement = _sqlStatementTemplates[index];
-
-    std::string variable = "?";
-
-    size_t position = statement.find(variable);
-
-    while (position != std::string::npos)
-    {
-        statement.replace(position, variable.length(), value);
-        position = statement.find(variable);
-    }
-    return statement;
-}
-
-void DatabaseManager::SQL_STMT(int index, std::string value)
-{
-    std::string statement = _SubVarsInTemplate(index, value);
-
-    if (statement.empty())
-    {
-        std::cout << "SQL statement was not found." << std::endl;
-        return;
-    }
-
-    char* errorMessage = nullptr;
-
-    int result = sqlite3_exec(_db, statement.c_str(), nullptr, nullptr, &errorMessage);
-
-    if (result != SQLITE_OK)
-    {
-        std::cout << "SQL Error: "
-                  << errorMessage << std::endl;
-
-        sqlite3_free(errorMessage);
-    }
-}
 void DatabaseManager::SQL_STMT(std::string statement)
 {
     char* errorMessage = nullptr;
@@ -189,53 +142,7 @@ std::vector<std::vector<std::string>> DatabaseManager::SQL_QUERY(std::string sta
 bool DatabaseManager::SQL_isERR()
 {
     if (_db == nullptr)
-    {
         return true;
-    }
 
     return sqlite3_errcode(_db) != SQLITE_OK;
-}
-
-void DatabaseManager::AddTransaction(bool isIncome,double amount,std::string description)
-{
-    std::string sql;
-
-    if (isIncome)
-    {
-        sql = "INSERT INTO BUDGET "
-              "(USER_ID, BUD_VAL, BUD_DATE, BUD_DESC) "
-              "VALUES (1, ?, datetime('now'), ?)";
-    }
-    else
-    {
-        sql = "INSERT INTO EXPENSE "
-              "(USER_ID, EXP_VAL, EXP_DATE, EXP_DESC) "
-              "VALUES (1, ?, datetime('now'), ?)";
-    }
-
-    sqlite3_stmt* statement = nullptr;
-
-    int result = sqlite3_prepare_v2(
-        _db, sql.c_str(), -1, &statement, nullptr);
-
-    if (result != SQLITE_OK)
-    {
-        std::cout << "SQL Prepare Error: "
-                  << sqlite3_errmsg(_db) << std::endl;
-        return;
-    }
-
-    sqlite3_bind_double(statement, 1, amount);
-    sqlite3_bind_text(
-        statement, 2, description.c_str(), -1, SQLITE_TRANSIENT);
-
-    result = sqlite3_step(statement);
-
-    if (result != SQLITE_DONE)
-    {
-        std::cout << "SQL Insert Error: "
-                  << sqlite3_errmsg(_db) << std::endl;
-    }
-
-    sqlite3_finalize(statement);
 }

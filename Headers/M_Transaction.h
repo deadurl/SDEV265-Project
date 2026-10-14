@@ -1,11 +1,11 @@
 #pragma once
 
 #include "Header.h"
-#include "Requests.h"
 #include "DatabaseManager.h"
 #include "M_BaseModel.h"
 
-class M_Transaction : public Requests, public BaseModel
+//not really a model anymore but its ok
+class M_Transaction : public BaseModel
 {
 private:
     std::string _description;
@@ -13,9 +13,11 @@ private:
     std::string _type;
 
 public:
-    M_Transaction();
-    M_Transaction(std::string description, std::string amount, std::string type);
-    M_Transaction(crow::json::wvalue json);
+    M_Transaction() = default;
+    M_Transaction(std::string description, std::string amount, std::string type) 
+        : _description(description), _amount(amount), _type(type) {}
+    M_Transaction(crow::json::wvalue json)
+        : BaseModel(json) {}
 
     void SetData(std::string description, std::string amount, std::string type);
     bool Process(DatabaseManager& dbMgr);

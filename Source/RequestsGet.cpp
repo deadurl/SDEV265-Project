@@ -12,7 +12,7 @@ std::vector<std::vector<std::string>> RequestsGet::GetHistory(DatabaseManager& d
     "FROM EXPENSE "
     "ORDER BY 2 DESC";
 
-return dbMgr.SQL_QUERY(sql);
+    return dbMgr.SQL_QUERY(sql);
 }
 
 std::string RequestsGet::GetBalance(DatabaseManager& dbMgr)

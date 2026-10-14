@@ -5,11 +5,10 @@
 class BaseModel
 {
 public:
-    BaseModel()
-    {
-    }
+    BaseModel() = default;
 
     BaseModel(crow::json::wvalue)
     {
+        
     }
 };

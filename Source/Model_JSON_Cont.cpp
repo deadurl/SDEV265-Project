@@ -3,8 +3,7 @@
 #include "M_Transaction.h"
 
 template <class T>
-std::optional<T> Model_JSON_Cont<T>::GetModel()
-{
+std::optional<T> Model_JSON_Cont<T>::GetModel() {
     if (_model.has_value())
         return _model;
 
@@ -12,20 +11,18 @@ std::optional<T> Model_JSON_Cont<T>::GetModel()
 }
 
 template <class T>
-crow::json::wvalue Model_JSON_Cont<T>::GetJson()
-{
+crow::json::wvalue Model_JSON_Cont<T>::GetJson() {
     return _json;
 }
 
 template <class T>
 Model_JSON_Cont<T>::Model_JSON_Cont(std::string sql)
-{
+    : _strRep(sql) {
     std::stringstream ss0(sql), ssN;
     std::string val;
     std::string ele;
 
-    while (std::getline(ss0, val))
-    {
+    while (std::getline(ss0, val)) {
         ssN << val;
         ssN >> val >> ele;
         _json[val] = ele;
@@ -38,9 +35,8 @@ Model_JSON_Cont<T>::Model_JSON_Cont(std::string sql)
 }
 
 template <class T>
-Model_JSON_Cont<T>::Model_JSON_Cont(T model)
-{
-    _model = model;
+std::string Model_JSON_Cont<T>::GetString() {
+    return _strRep;
 }
 
 template class Model_JSON_Cont<M_Transaction>;

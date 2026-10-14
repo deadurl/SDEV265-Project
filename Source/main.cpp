@@ -3,10 +3,8 @@
 
 int main()
 {
-    std::cout << "SDEV265 Project is working!" << std::endl;
-
     RouteManager routes;
+    routes.Route();
     routes.Run(18080);
 
-    return 0;
 }
