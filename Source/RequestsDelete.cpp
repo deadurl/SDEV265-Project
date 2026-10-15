@@ -6,7 +6,7 @@ bool RequestsDelete::DeleteTransaction(
     std::string type)
 {
     int transactionID;
-
+    std::cout << id << std::endl;
     try
     {
         size_t position;

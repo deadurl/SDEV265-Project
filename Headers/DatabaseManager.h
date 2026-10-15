@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Header.h"
+#include "Model_JSON_Cont.h"
+
 #include <sqlite3.h>
 #include <string>
 #include <vector>
@@ -18,5 +20,5 @@ public:
     void SQL_STMT(std::string);
 
     std::vector<std::vector<std::string>> SQL_QUERY(std::string);
-    bool SQL_isERR();
+    std::vector<Model_JSON_Cont<EMPTY>> SQL_QUERY(const char *);
 };

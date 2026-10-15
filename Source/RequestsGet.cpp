@@ -15,6 +15,19 @@ std::vector<std::vector<std::string>> RequestsGet::GetHistory(DatabaseManager& d
     return dbMgr.SQL_QUERY(sql);
 }
 
+std::vector<Model_JSON_Cont<EMPTY>> RequestsGet::GetHistoryMJC(DatabaseManager& dbMgr)
+{
+    std::string sql =
+    "SELECT BUD_ID, BUD_DATE, BUD_DESC, BUD_VAL, 'income' AS TYPE "
+    "FROM BUDGET "
+    "UNION ALL "
+    "SELECT EXP_ID, EXP_DATE, EXP_DESC, EXP_VAL, 'expense' AS TYPE "
+    "FROM EXPENSE "
+    "ORDER BY 2 DESC";
+
+    return dbMgr.SQL_QUERY(sql.c_str());
+}
+
 std::string RequestsGet::GetBalance(DatabaseManager& dbMgr)
 {
     std::string sql =

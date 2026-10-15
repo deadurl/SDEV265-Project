@@ -1,13 +1,12 @@
 # ninja log v7
-29	2869	8136403416324777	CMakeFiles/SDEV265-Project.dir/Source/M_Transaction.cpp.obj	97835bacf841a0b
-21	2915	8136403416244791	CMakeFiles/SDEV265-Project.dir/Source/RequestsDelete.cpp.obj	7e34d9a0aef353e0
-18	2938	8136403416214777	CMakeFiles/SDEV265-Project.dir/Source/RequestsGet.cpp.obj	c28198e86329ca3e
-25	2986	8136403416284781	CMakeFiles/SDEV265-Project.dir/Source/RequestsPost.cpp.obj	3f78cc14b5ba856d
-9	2999	8136403416124772	CMakeFiles/SDEV265-Project.dir/Source/DatabaseManager.cpp.obj	a4315be66ba97d48
-5	3066	8136403416084773	CMakeFiles/SDEV265-Project.dir/Source/main.cpp.obj	8a5d0eb2f07ea377
-33	3069	8136403416364780	CMakeFiles/SDEV265-Project.dir/Source/Model_JSON_Cont.cpp.obj	de7bf97575e53279
-13	5615	8136403416164788	CMakeFiles/SDEV265-Project.dir/Source/RouteManager.cpp.obj	383f50780de6cba4
-13	2207	8136404471120157	CMakeFiles/SDEV265-Project.dir/Source/DatabaseManager.cpp.obj	a4315be66ba97d48
-2207	2665	8136404493069770	SDEV265-Project.exe	854dc40f57f48c40
-12	2220	8136404928844615	CMakeFiles/SDEV265-Project.dir/Source/DatabaseManager.cpp.obj	a4315be66ba97d48
-2220	2675	8136404950927438	SDEV265-Project.exe	854dc40f57f48c40
+39	3031	8138000948585387	CMakeFiles/SDEV265-Project.dir/Source/M_Transaction.cpp.obj	97835bacf841a0b
+32	3052	8138000948515356	CMakeFiles/SDEV265-Project.dir/Source/RequestsDelete.cpp.obj	7e34d9a0aef353e0
+28	3039	8138000948467804	CMakeFiles/SDEV265-Project.dir/Source/RequestsGet.cpp.obj	c28198e86329ca3e
+35	3026	8138000948555375	CMakeFiles/SDEV265-Project.dir/Source/RequestsPost.cpp.obj	3f78cc14b5ba856d
+19	3215	8138000948387815	CMakeFiles/SDEV265-Project.dir/Source/DatabaseManager.cpp.obj	a4315be66ba97d48
+12	3183	8138000948317761	CMakeFiles/SDEV265-Project.dir/Source/main.cpp.obj	8a5d0eb2f07ea377
+48	3221	8138000948685446	CMakeFiles/SDEV265-Project.dir/Source/Model_JSON_Cont.cpp.obj	de7bf97575e53279
+24	5758	8138000948437805	CMakeFiles/SDEV265-Project.dir/Source/RouteManager.cpp.obj	383f50780de6cba4
+5758	6283	8138001005781120	SDEV265-Project.exe	854dc40f57f48c40
+16	4866	8138002761389027	CMakeFiles/SDEV265-Project.dir/Source/RouteManager.cpp.obj	383f50780de6cba4
+4866	5351	8138002809893781	SDEV265-Project.exe	854dc40f57f48c40

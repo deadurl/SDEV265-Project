@@ -21,6 +21,20 @@ namespace
 
         return 0;
     }
+
+    //make this take in a json object
+    static int callbackMJC(void* data, int argc, char** argv, char** colNam) {
+        std::vector<Model_JSON_Cont<EMPTY>> * col = (std::vector<Model_JSON_Cont<EMPTY>>*)data;
+        std::stringstream ss;
+        crow::json::wvalue tmp;
+
+        for (int i = 0; i < argc; ++i) {   
+            tmp[colNam[i]] = argv[i];
+        }
+        col->push_back(tmp);
+
+        return 0;
+    }
 }
 
 DatabaseManager::DatabaseManager()
@@ -139,10 +153,16 @@ std::vector<std::vector<std::string>> DatabaseManager::SQL_QUERY(std::string sta
     return results;
 }
 
-bool DatabaseManager::SQL_isERR()
-{
-    if (_db == nullptr)
-        return true;
+std::vector<Model_JSON_Cont<EMPTY>> DatabaseManager::SQL_QUERY(const char * value) {
+    std::vector<Model_JSON_Cont<EMPTY>> ret;
 
-    return sqlite3_errcode(_db) != SQLITE_OK;
+    char* errorMessage = nullptr;
+
+    if (sqlite3_exec(_db, value, callbackMJC, &ret, &errorMessage) != SQLITE_OK) {
+        std::cerr << "SQL Error: " << errorMessage << std::endl;
+
+        sqlite3_free(errorMessage);
+    }
+
+    return ret;
 }

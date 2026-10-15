@@ -11,7 +11,6 @@ void RouteManager::Route() {
 
     CROW_ROUTE(_app, "/")
     ([]() {
-        std::cout << "Hello??" << std::endl;
         crow::mustache::template_t ret =
             crow::mustache::load("login.html");
 
@@ -30,7 +29,6 @@ void RouteManager::Route() {
     // Login submission
     CROW_ROUTE(_app, "/login").methods(crow::HTTPMethod::POST)
     ([](const crow::request& req) {
-
         auto params = req.get_body_params();
 
         auto username = params.get("username");
@@ -53,48 +51,21 @@ void RouteManager::Route() {
     // Finance page
     CROW_ROUTE(_app, "/finance")
     ([this]() {
-
         RequestsGet getRequest;
-
-        auto history = getRequest.GetHistory(_dbMgr);
+        
         auto balance = getRequest.GetBalance(_dbMgr);
-
         time_t now = time(nullptr);
         tm* localTime = localtime(&now);
 
         std::stringstream date;
-        date << std::setfill('0')
-             << std::setw(2) << localTime->tm_mon + 1
-             << "/"
-             << std::setw(2) << localTime->tm_mday
-             << "/"
-             << localTime->tm_year + 1900;
+        date << std::put_time(localTime, "%Y-%m-%d %H:%M:%S");
 
         crow::mustache::context ctx;
-
-        crow::json::wvalue::list historyList;
-
-        for (auto row : history)
-        {
-            crow::json::wvalue entry;
-
-            entry["id"] = row[0];
-            entry["date"] = row[1];
-            entry["description"] = row[2];
-            entry["amount"] = row[3];
-            entry["type"] = row[4];
-
-            historyList.push_back(std::move(entry));
-        }
-
-        ctx["history"] = std::move(historyList);
+        ctx["history"] = std::move(ChangeArrayType(getRequest.GetHistoryMJC(_dbMgr)));
         ctx["balance"] = balance;
         ctx["date"] = date.str();
 
-        crow::mustache::template_t ret =
-            crow::mustache::load("index.html");
-
-        return ret.render(ctx);
+        return crow::mustache::load("index.html").render(ctx);
     });
 
 
