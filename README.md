@@ -4,8 +4,5 @@ An app where users log income/expenses, categorize spending, and view simple sum
 
 
 # Running the files
-In order to run the server for this project, make sure to open windows powershell and navigate to the file. 
-Navigate to your command directory using - cd C:\Filename\location
-Verify location using command file - pwd
-Check your source - Get-ChildItem .\Source
-Build your project - cmake --build build
+Once downloaded, navigate to the SDEV-Project exe located in build and run. Once running, open browser and navigate to localhost:18080. 
+The base username is CatAdministrator and the password is MeowMeowMeow. These can be changed via route manager
